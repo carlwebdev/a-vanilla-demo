@@ -32,7 +32,7 @@
     -webkit-background-clip: text;
     text-shadow: #ee3f00;
 
-    background-image:url('img/monkHead.png');
+    background-image:url('../img/monkHead.png');
         background-size: 35px;
 
 
@@ -48,7 +48,7 @@
     -webkit-background-clip: text;
     text-shadow: #ee3f00;
 
-    background-image:url('img/louReedHead.png');
+    background-image:url('../img/louReedHead.png');
         background-size: 35px;
 
 

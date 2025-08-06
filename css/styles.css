@@ -1,3 +1,45 @@
+/*
+ * CSS RESET
+ */
+
+body {margin:0;}
+
+*, *::before, *::after {box-sizing: border-box;}
+
+
+
+/*
+ * SCROLL SNAP
+ */
+/* */
+
+body {
+  min-height: 100vh;
+}
+
+/*  .scroll-container,*/
+main {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh;
+}
+/* .scroll-section, */
+section {
+  scroll-snap-align: start;
+  height: 100vh;
+  /*
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  */
+}
+
+
+
+/*
+ * "SECTIONS"
+ */
 
 .text-toon-background-monk{
     position: relative;
@@ -55,6 +97,13 @@
     animation: textToonAnimation-two 170s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
     
 }
+
+
+
+/*
+ * KEYFRAMES - CSS ANIMATIONS
+ */
+
 @keyframes textToonAnimation-one {
     0% {
         background-position: top;
@@ -77,6 +126,13 @@
         background-position: bottom left;
     }
 }
+
+
+
+/*
+ * TYPOGRAPHY
+ */
+
 /*fonts*/
 .poppins-black {
   font-family: "Poppins", sans-serif;

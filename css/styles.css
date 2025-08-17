@@ -181,7 +181,9 @@ nav.desktop {
  * "SECTIONS"
  */
 
-.text-toon-background-monk{
+.text-toon-background-monk, 
+.text-toon-background-reed,
+.text-toon-background-juana {
     position: relative;
     width: 100%;
     height: 100dvh;
@@ -190,84 +192,50 @@ nav.desktop {
     align-items: center;
     overflow:hidden;
     background-size:cover;
-    background-color:coral;
     color:#ffffff;
 }
-.text-toon-background-reed{
-    position: relative;
-    width: 100%;
-    height: 100dvh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow:hidden;
-    background-size:cover;
-    background-color:#278e76;
-    color:#ffffff;
-}
-.text-toon-background-juana{
-    position: relative;
-    width: 100%;
-    height: 100dvh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow:hidden;
-    background-size:cover;
-    background-color:#191919;
-    color:#ffffff;
-}
-.text-toon-monk{
-    font-size:20em;
+    .text-toon-background-monk{
+        background-color:coral;
+    }
+    .text-toon-background-reed{
+        background-color:#278e76;
+    }
+    .text-toon-background-juana{
+        background-color:#191919;
+    }
+
+
+
+.text-toon-monk,
+.text-toon-reed,
+.text-toon-juana {
+    /* font-size:20em; */
+    font-size: clamp(8em, 6vw, 20em);
     color:transparent;
-    -webkit-text-stroke:2px #fdaa4a;
     background-clip: text;
     -webkit-background-fill-color: transparent;
     -webkit-background-clip: text;
     text-shadow: #ee3f00;
-
-    background-image:url('../img/monkHead.png');
-        background-size: 35px;
-
-
-    animation: textToonAnimation-one 100s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
-    
-}
-.text-toon-reed{
-    font-size:20em;
-    color:transparent;
-    -webkit-text-stroke:2px #00ffc4;
-    background-clip: text;
-    -webkit-background-fill-color: transparent;
-    -webkit-background-clip: text;
-    text-shadow: #ee3f00;
-
-    background-image:url('../img/louReedHead.png');
-        background-size: 35px;
-
-
-    animation: textToonAnimation-two 170s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
-    
-}
-
-.text-toon-juana{
-    font-size:20em;
-    color:transparent;
-    -webkit-text-stroke:2px #c0dfd8;
-    background-clip: text;
-    -webkit-background-fill-color: #c0dfd8;
-    -webkit-background-clip: text;
-    text-shadow: #ee3f00;
-
-    background-image:url('../img/louReedHead.png');
     background-size: 35px;
-    background-color:#c0dfd8;/*mirar por que se corta*/
-
-    animation:
-                textToonAnimation-three 0,5s infinite;
-               
-    
 }
+    .text-toon-monk{
+        -webkit-text-stroke:2px #fdaa4a;
+        background-image:url('../img/monkHead.png');
+        animation: textToonAnimation-one 100s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;    
+    }
+    .text-toon-reed{
+        -webkit-text-stroke:2px #00ffc4;
+        background-image:url('../img/louReedHead.png');
+        animation: textToonAnimation-two 170s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;    
+    }
+    .text-toon-juana{
+        -webkit-text-stroke:2px #c0dfd8;
+        background-image:url('../img/louReedHead.png');
+        background-color:#c0dfd8;/*mirar por que se corta*/
+        /* animation: textToonAnimation-three 0,5s infinite; */
+        /* animation: textToonAnimation-three 170s cubic-bezier(0.25, 0.1, 0.25, 1) infinite; */
+        animation: textToonAnimation-two 170s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;                
+    }
 
 
 

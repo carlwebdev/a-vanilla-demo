@@ -116,8 +116,13 @@ header#header {
     column-gap: 4em;
     /* row-gap:2em; */ 
     flex-wrap: wrap;
-    padding-block: 2em;
+    padding-block: 1em;
     background-color: #b25838; /* darker orange */
+
+    /* STICKY HEADER */
+    position: sticky;
+    top: 0;
+    z-index: 1;
 }
 
 footer#footer {

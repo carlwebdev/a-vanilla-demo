@@ -215,7 +215,7 @@ nav.desktop {
 .text-toon-reed,
 .text-toon-juana {
     /* font-size:20em; */
-    font-size: clamp(8em, 6vw, 20em);
+    font-size: clamp(20em, 18vw, 30em);
     color:transparent;
     background-clip: text;
     -webkit-background-fill-color: transparent;
@@ -235,14 +235,13 @@ nav.desktop {
     }
     .text-toon-juana{
         -webkit-text-stroke:2px #c0dfd8;
-        background-image:url('../img/louReedHead.png');
+        background-image:url('../img/juana-head.png');
         background-color:#c0dfd8;/*mirar por que se corta*/
         /* animation: textToonAnimation-three 0,5s infinite; */
         /* animation: textToonAnimation-three 170s cubic-bezier(0.25, 0.1, 0.25, 1) infinite; */
-        animation: textToonAnimation-two 170s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;                
+        /* animation: textToonAnimation-two 170s cubic-bezier(0.25, 0.1, 0.25, 1) infinite; */
+         animation: bounceDown 1s ease-in-out infinite;
     }
-
-
 
 
 
@@ -280,7 +279,24 @@ nav.desktop {
          top:0%;
     }
 }
+    /* Animación: bajar y subir */
+    @keyframes bounceDown {
+        0%, 100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(20px);
+        }
+    }
 
+    /* Asignamos delay progresivo a cada letra */
+    .text-toon-juana:nth-child(1) { animation-delay: 0s; }
+    .text-toon-juana:nth-child(2) { animation-delay: 0.1s; }
+    .text-toon-juana:nth-child(3) { animation-delay: 0.2s; }
+    .text-toon-juana:nth-child(4) { animation-delay: 0.3s; }
+    .text-toon-juana:nth-child(5) { animation-delay: 0.4s; }
+    .text-toon-juana:nth-child(6) { animation-delay: 0.5s; }
+    .text-toon-juana:nth-child(7) { animation-delay: 0.6s; }
 
 
 

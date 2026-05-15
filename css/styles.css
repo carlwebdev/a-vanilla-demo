@@ -19,9 +19,12 @@ a {
  * CSS CUSTOM PROPERTIES
  */
 :root {
-
-
-
+    --c-orange: coral;
+    --c-orange-dark: #b25838;
+    --c-green: #278e76;
+    --c-green-dark: #114136;
+    --c-black: #191919;
+    --c-white: #ffffff;
 }
 
 
@@ -52,14 +55,46 @@ a {
 
 
 
-/* STICKY FOOTER */
+/* STICKY FOOTER - Simplified approach */
 body {
-display: flex;
-min-height: 100dvh; 
-flex-direction: column;  
+  /* Remove flex layout temporarily to test scroll snap */
+  /* display: flex; */
+  /* min-height: 100vh; */
+  /* flex-direction: column; */
+  margin: 0;
+  padding: 0;
+  /* Move scroll snap to body for full-height scrollbar */
+  scroll-snap-type: y mandatory;
+  overflow-y: auto;
+  /* Ensure body has enough height to scroll */
+  height: 100vh;
+  /* Allow body to expand beyond viewport if needed */
+  min-height: 100vh;
 }	
+
 main {
-  flex: 1;
+  /* Remove flex properties temporarily */
+  /* flex: 1; */
+  /* height: calc(100vh - 120px); */
+  
+  /* Remove scroll snap from main since it's now on body */
+  /* scroll-snap-type: y mandatory; */
+  /* overflow-y: auto; */
+  /* height: 100vh; */
+}
+
+/* Apply scroll snap to ALL sections directly */
+section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  /* Ensure sections are tall enough to create scrollable content */
+  height: 100vh; /* Full viewport height for proper scroll snap */
+}
+
+/* Apply scroll snap to footer as well */
+footer#footer {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
 }
 
 
@@ -71,143 +106,42 @@ main {
 /*
  * SCROLL SNAP
  */
-/* */
-
-body {
-  min-height: 100dvh;
-}
-
-/*  .scroll-container,*/
-main___NOT {
+/* Scroll snap now applied to body element for better compatibility */
+/* main {
   scroll-snap-type: y mandatory;
-  overflow-y: scroll;
-  height: 100dvh;
-}
-/* .scroll-section, */
-section__NOT {
-  scroll-snap-align: start;
-  height: 100dvh;
-  /*
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  */
-}
+  overflow-y: auto;
+  flex: 1;
+  height: 100vh;
+  max-height: calc(100vh - 100px);
+} */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-header#header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    /* gap: 4em; */
-    column-gap: 4em;
-    /* row-gap:2em; */ 
-    flex-wrap: wrap;
-    padding-block: 1em;
-    background-color: #b25838; /* darker orange */
-
-    /* STICKY HEADER */
-    position: sticky;
-    top: 0;
-    z-index: 1;
-}
-
-footer#footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-block: 2em;
-    background-color: #114136; /* darker green */
-
-
-    color: white;
-    font-family: "Poppins", sans-serif;
-    font-weight: 900;  
-}
-
-
-
-header#header,
-footer#footer {
-    padding-inline: 2em;
-}
-
-
-h1.logo {
-    color: white;
-    font-family: "Poppins", sans-serif;
-    font-weight: 900;    
-
-    a {
-      &:hover {}
-    }  
-}
-
-
-nav.desktop {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2em;
-    /* margin: 20px 0; */
-
-    color: white;
-    font-family: "Poppins", sans-serif;
-    font-weight: 900;
-
-    a {
-      &:hover {}
-    }
-
-}
-
-
-
-
-
-
-
-
-
-/*
- * "SECTIONS"
- */
-
+/* Apply scroll snap to sections */
 .text-toon-background-monk, 
 .text-toon-background-reed,
 .text-toon-background-juana {
-    position: relative;
-    width: 100%;
-    height: 100dvh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow:hidden;
-    background-size:cover;
-    color:#ffffff;
+  /* scroll-snap-align: start; - Now applied globally to all sections */
+  /* scroll-snap-stop: always; - Now applied globally to all sections */
+  /* Keep existing styles */
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Full viewport height for proper scroll snap */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-size: cover;
+  color: var(--c-white);
 }
     .text-toon-background-monk{
-        background-color:coral;
+        background-color:var(--c-orange);
     }
     .text-toon-background-reed{
-        background-color:#278e76;
+        background-color:var(--c-green);
     }
     .text-toon-background-juana{
-        background-color:#191919;
+        background-color:var(--c-black);
     }
+
 
 
 
@@ -220,7 +154,7 @@ nav.desktop {
     background-clip: text;
     -webkit-background-fill-color: transparent;
     -webkit-background-clip: text;
-    text-shadow: #ee3f00;
+    /* text-shadow: #ee3f00; */
     background-size: 35px;
 }
     .text-toon-monk{
@@ -297,6 +231,85 @@ nav.desktop {
     .text-toon-juana:nth-child(5) { animation-delay: 0.4s; }
     .text-toon-juana:nth-child(6) { animation-delay: 0.5s; }
     .text-toon-juana:nth-child(7) { animation-delay: 0.6s; }
+
+
+
+/*
+ * HEADER & FOOTER STYLES
+ */
+
+header#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* gap: 4em; */
+    column-gap: 4em;
+    /* row-gap:2em; */ 
+    flex-wrap: wrap;
+    padding-block: 1em;
+    background-color: var(--c-orange-dark); 
+
+    /* STICKY HEADER */    
+    position: sticky;    
+    /* position: fixed; width: 100%; */
+    top: 0;
+    z-index: 1;
+    
+}
+
+footer#footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-block: 2em;
+    background-color: var(--c-green-dark); 
+
+
+    color: white;
+    font-family: "Poppins", sans-serif;
+    font-weight: 900;  
+}
+
+
+
+header#header,
+footer#footer {
+    padding-inline: 2em;
+}
+
+
+h1.logo {
+    color: white;
+    font-family: "Poppins", sans-serif;
+    font-weight: 900;    
+
+    a {
+      &:hover {
+        color: var(--c-orange);
+      }
+    }  
+}
+
+
+nav.desktop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+    /* margin: 20px 0; */
+
+    color: white;
+    font-family: "Poppins", sans-serif;
+    font-weight: 900;
+
+    a {
+      &:hover {
+        color: var(--c-orange);
+      }
+    }
+
+}
+
 
 
 
